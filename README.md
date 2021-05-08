@@ -10,7 +10,7 @@ This is a whatsapp bot by which you can send semi-customized messages to contact
 
 * it will identify if the gender is male or female using the attached csv file. This could be further improved by using free API to specify if the name is for males or females.
 
-* Lastly, it will send the message with the first translated name and provided text.
+* Lastly, adjust the message you want to send for males, and females, and it will send the message including the name and taking into consideration the gender
 
 
 The code could be adjusted slightly for to serve various purposes.

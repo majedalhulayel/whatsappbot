@@ -15,23 +15,16 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 import time
-
-
 from google.cloud import translate_v2 as translate
 import os
 
 # # 
 
 # ### get selenium
-
-
-
-
 #open up chrome webdriver
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get('http://web.whatsapp.com')
 driver.maximize_window()
-
 
 #wait until the user scan the QR code and the new chat appears
 timeout = 100
@@ -43,10 +36,6 @@ driver.find_element_by_xpath('//div[@title="New chat"]').click()
 # # 
 
 # ### find recent contacts
-
-
-
-
 response_content = driver.page_source
 soup = BeautifulSoup(response_content, 'lxml')
 
@@ -62,10 +51,6 @@ rcontacts_list = [rcontact_xml.get('title') for rcontact_xml in rcontacts_xml]
 # # 
 
 # # collect contacts
-
-
-
-
 contacts_dict = {}
 contacts_list = []
 contacts_length = 0
@@ -99,10 +84,6 @@ driver.find_element_by_xpath('//span[@data-testid="back"]').click()
 # # 
 
 # # first name
-
-
-
-
 #first names dictionary to include gender, translated name, frequency, and other features if needed
 first_names = {}
 for contact in contacts_dict.keys():
@@ -123,12 +104,6 @@ for contact in contacts_dict.keys():
 # # 
 
 # ### translate first_names
-
-
-
-
-
-
 #PATH TO GOOGLE TRANSLATOR CREDS. 
 #SEE https://www.youtube.com/watch?v=YapTts_An9A&ab_channel=JieJenn
 path_to_creds = r"ADD GOOGLE API CREDS FILE JSON format"
@@ -150,10 +125,6 @@ def translate_name(name):
 # # 
 
 # ### translate names
-
-
-
-
 counter = 0
 for name in first_names.keys():
     time.sleep(1)
@@ -179,10 +150,6 @@ for name in first_names.keys():
 # # 
 
 # ### gender classification
-
-
-
-
 gender_names = pd.read_csv('names_gender.csv')
 #sources are as follows
 #1: https://github.com/Eslam2014/arabic_names_with_gender
@@ -202,10 +169,6 @@ for first_name in first_names.keys():
 # # 
 
 # ### adding gender and translated first name to contacts dictionary
-
-
-
-
 for contact in contacts_dict.keys():
     first_name = contacts_dict[contact]['first_name']
     contacts_dict[contact] = {**contacts_dict[contact], **first_names[first_name]}
@@ -214,10 +177,6 @@ for contact in contacts_dict.keys():
 # # 
 
 # # contacts selections
-
-
-
-
 #IN CASE YOU WANT TO SELECT SPECIFIC CONTACTS, SPECIFY THEM HERE
 selected_contacts = contacts_dict
 
@@ -225,8 +184,6 @@ selected_contacts = contacts_dict
 # # 
 
 # # send messages
-
-
 for contact in selected_contacts.keys():
     
     #NAVEGATE TO THE CHAT

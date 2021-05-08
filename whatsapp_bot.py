@@ -263,5 +263,9 @@ for contact in selected_contacts.keys():
     #SEND THE MESSAGE
     driver.execute_script("arguments[0].innerHTML = '{}'".format(html_message),message_box)
     message_box.send_keys("." + Keys.BACKSPACE + Keys.ENTER)
+
     
+# close the driver
+driver.close()
+
 

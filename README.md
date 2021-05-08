@@ -13,5 +13,4 @@ This is a whatsapp bot by which you can send semi-customized messages to contact
 * Lastly, it will send the message with the first translated name and provided text.
 
 
-
-The code could be adjusted slightly for various usages.
+The code could be adjusted slightly for to serve various purposes.

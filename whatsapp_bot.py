@@ -218,7 +218,7 @@ for contact in contacts_dict.keys():
 
 
 
-#IN CASE YOU WANT TO SELECT SPECIFIC, SPECIFY THEM HERE
+#IN CASE YOU WANT TO SELECT SPECIFIC CONTACTS, SPECIFY THEM HERE
 selected_contacts = contacts_dict
 
 

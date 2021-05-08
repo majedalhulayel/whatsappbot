@@ -2,15 +2,15 @@
 
 This is a whatsapp bot by which you can send semi-customized messages to contacts list. 
 
-First, it will collect contacts names
+* it will collect contacts names
 
-Second, it will create a dictionary of the first names
+* it will create a dictionary of the first names
 
-Third, if the name is in not in Arabic, it will convert it to Arabic using Google Translater API (You'll need to get Google API key, follow the link in the code to get it for free). 
+* if the name is in not in Arabic, it will convert it to Arabic using Google Translater API (You'll need to get Google API key, follow the link in the code to get it for free). 
 
-Fourth, it will identify if the gender is male or female using the attached csv file. This could be further improved by using free API to specify if the name is for males or females.
+* it will identify if the gender is male or female using the attached csv file. This could be further improved by using free API to specify if the name is for males or females.
 
-Lastly, it will send the message with the first translated name and provided text.
+* Lastly, it will send the message with the first translated name and provided text.
 
 
 

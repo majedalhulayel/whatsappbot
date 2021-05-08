@@ -200,26 +200,27 @@ for contact in selected_contacts.keys():
     time.sleep(0.25)
     message_box = driver.switch_to.active_element
     
-    first_name_translated = selected_contacts[contact]['translated']
-    gender = selected_contacts[contact]['gender']
-    
-    #IF GENDER IS NOT AVAILABLE
-    if gender == 'Male':
-        line1 = 'العزيز {},'.format(first_name_translated)
-        line2 = "حبيت اهنئك بحلول عيد الفطر المبارك. كل عام وأنت بخير وعساكم من عواده 🎉🎊"
-        line3 = "ماجد آل هليل"
-        
-    elif gender == 'Female':
-        line1 = 'العزيزة {}'.format(first_name_translated)
-        line2 = "حبيت اهنئك بحلول عيد الفطر المبارك. كل عام وأنتي بخير وعساكم من عواده 🎉🎊"
-        line3 = "ماجد آل هليل"
+    if 'translated' in selected_contacts[contact].keys() and 'gender' in selected_contacts[contact].keys():
+        first_name_translated = selected_contacts[contact]['translated']
+        gender = selected_contacts[contact]['gender']
 
-    #FORMAT THE MESSAGE
-    html_message = "<p>{}</p><p>{}</p><p></p><p>{}</p>".format(line1, line2, line3)
-    
-    #SEND THE MESSAGE
-    driver.execute_script("arguments[0].innerHTML = '{}'".format(html_message),message_box)
-    message_box.send_keys("." + Keys.BACKSPACE + Keys.ENTER)
+        #IF GENDER IS NOT AVAILABLE
+        if gender == 'Male':
+            line1 = 'العزيز {},'.format(first_name_translated)
+            line2 = "حبيت اهنئك بحلول عيد الفطر المبارك. كل عام وأنت بخير وعساكم من عواده 🎉🎊"
+            line3 = "ماجد آل هليل"
+
+        elif gender == 'Female':
+            line1 = 'العزيزة {}'.format(first_name_translated)
+            line2 = "حبيت اهنئك بحلول عيد الفطر المبارك. كل عام وأنتي بخير وعساكم من عواده 🎉🎊"
+            line3 = "ماجد آل هليل"
+
+        #FORMAT THE MESSAGE
+        html_message = "<p>{}</p><p>{}</p><p></p><p>{}</p>".format(line1, line2, line3)
+
+        #SEND THE MESSAGE
+        driver.execute_script("arguments[0].innerHTML = '{}'".format(html_message),message_box)
+        message_box.send_keys("." + Keys.BACKSPACE + Keys.ENTER)
 
     
 # close the driver

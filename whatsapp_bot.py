@@ -186,21 +186,22 @@ selected_contacts = contacts_dict
 # # send messages
 for contact in selected_contacts.keys():
     
-    #NAVEGATE TO THE CHAT
-    time.sleep(0.25)  
-    #open a new chat
-    driver.find_element_by_xpath('//div[@title="New chat"]').click()
-    time.sleep(0.25)
-    #search for the contact name
-    driver.switch_to.active_element.send_keys(contact)
-    time.sleep(0.25)
-    #enter the chat
-    driver.switch_to.active_element.send_keys(Keys.ENTER)
-    #send the message
-    time.sleep(0.25)
-    message_box = driver.switch_to.active_element
-    
     if 'translated' in selected_contacts[contact].keys() and 'gender' in selected_contacts[contact].keys():
+
+        #NAVEGATE TO THE CHAT
+        time.sleep(0.25)  
+        #open a new chat
+        driver.find_element_by_xpath('//div[@title="New chat"]').click()
+        time.sleep(0.25)
+        #search for the contact name
+        driver.switch_to.active_element.send_keys(contact)
+        time.sleep(0.25)
+        #enter the chat
+        driver.switch_to.active_element.send_keys(Keys.ENTER)
+        #send the message
+        time.sleep(0.25)
+        message_box = driver.switch_to.active_element
+    
         first_name_translated = selected_contacts[contact]['translated']
         gender = selected_contacts[contact]['gender']
 

@@ -1,0 +1,7 @@
+selenium==3.141.0
+webdriver-manager==3.4.1
+requests
+beautifulsoup4==4.9.3
+pandas==1.2.4
+google-cloud-translate
+lxml
